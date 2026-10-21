@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindSparks - Knowledge & Life-Changing Stories</title>
+    <title>MindSparks - Knowledge & Deep Stories</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -18,7 +18,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
 
-        /* Modern Navigation Bar */
+        /* Navigation Bar */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -39,49 +39,56 @@
         .btn-nav { background: var(--primary); color: white !important; padding: 8px 18px; border-radius: 20px; transition: background 0.2s; }
         .btn-nav:hover { background: var(--primary-hover) !important; }
 
-        /* Hero Section (Odoo Style) */
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
+        /* Hero Banner */
+        .hero { text-align: center; padding: 50px 20px 30px; max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 40px; font-weight: 800; color: var(--text-main); margin-bottom: 14px; line-height: 1.2; }
+        .hero h1 span { background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 17px; color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+
+        /* Category Filter Tabs (Professional Options) */
+        .category-filter-container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 30px auto 20px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-        .hero h1 { font-size: 42px; font-weight: 800; color: var(--text-main); margin-bottom: 18px; line-height: 1.2; }
-        .hero h1 span { color: var(--primary); background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 18px; color: var(--text-sub); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        /* Categories Section (Feature Grid) */
-        .features { max-width: 1100px; margin: 0 auto 50px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .feature-box {
-            background: var(--card-bg);
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: var(--text-sub);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .feature-box:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1); }
-        .feature-icon { font-size: 32px; color: var(--primary); margin-bottom: 12px; }
-        .feature-box h3 { font-size: 18px; margin-bottom: 6px; }
-        .feature-box p { font-size: 13px; color: var(--text-sub); }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3); }
 
-        /* Story Feed Cards */
-        .feed-container { max-width: 800px; margin: 0 auto 60px; padding: 0 20px; }
-        .section-heading { font-size: 26px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+        /* Story Feed Cards Area */
+        .feed-container { max-width: 850px; margin: 0 auto 60px; padding: 0 20px; min-height: 300px; }
         
         .story-card {
             background: var(--card-bg);
             border-radius: 16px;
-            padding: 28px;
+            padding: 32px;
             margin-bottom: 24px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
         }
-        .tag { display: inline-block; background: #f3e8ff; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
-        .story-card h2 { font-size: 22px; margin-bottom: 12px; color: var(--text-main); }
-        .story-card p { font-size: 15px; color: var(--text-sub); margin-bottom: 18px; text-align: justify; }
-        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 6px; font-size: 14px; color: var(--text-main); }
+        .story-card:hover { transform: translateY(-2px); }
+        .tag { display: inline-block; background: #f3e8ff; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; }
+        .story-card h2 { font-size: 24px; margin-bottom: 14px; color: var(--text-main); }
+        .story-card p { font-size: 16px; color: var(--text-sub); margin-bottom: 20px; text-align: justify; line-height: 1.8; }
+        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); }
 
         /* Social Channels Grid */
         .social-section { background: var(--card-bg); border-top: 1px solid #e2e8f0; padding: 50px 20px; text-align: center; }
@@ -93,10 +100,10 @@
         .ig { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
         .wa { background: #25d366; }
 
-        footer { text-align: center; padding: 25px; color: var(--text-sub); font-size: 14px; background: #0f172a; color: #94a3b8; }
+        footer { text-align: center; padding: 25px; background: #0f172a; color: #94a3b8; font-size: 14px; }
 
         @media(max-width: 600px) {
-            .hero h1 { font-size: 30px; }
+            .hero h1 { font-size: 28px; }
             .nav-links { display: none; }
         }
     </style>
@@ -107,56 +114,77 @@
     <nav>
         <a href="#" class="logo"><i class="fa-solid fa-bolt" style="color: #7c3aed;"></i> Mind<span>Sparks</span></a>
         <div class="nav-links">
-            <a href="#stories">Stories</a>
-            <a href="#knowledge">Knowledge Hub</a>
+            <a href="#stories">Explore Knowledge</a>
             <a href="#community" class="btn-nav">Join Community</a>
         </div>
     </nav>
 
-    <!-- Hero Banner (Odoo Style) -->
+    <!-- Hero Banner -->
     <div class="hero">
-        <h1>Transform Your Life With <span>Powerful Knowledge & Stories</span></h1>
-        <p>Aapki life ko change karne wali inspiring stories, life lessons, aur amazing wisdom — sab ek hi platform par.</p>
+        <h1>Transform Your Thinking With <span>Deep Stories & Science</span></h1>
+        <p>Explore deep insights on Mind Control, Modern Science, Life Psychology, Health & Beauty.</p>
     </div>
 
-    <!-- Feature Categories -->
-    <div class="features" id="knowledge">
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fa-solid fa-fire"></i></div>
-            <h3>Life Lessons</h3>
-            <p>Self-improvement aur mindset change karne ke guides.</p>
-        </div>
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
-            <h3>Real Stories</h3>
-            <p>Inspiring logon ki sachhi kahaniyan.</p>
-        </div>
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
-            <h3>Mindset Sparks</h3>
-            <p>Daily habits aur motivation boost.</p>
-        </div>
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
-            <h3>Community</h3>
-            <p>WhatsApp aur Telegram par daily updates.</p>
-        </div>
+    <!-- Category Filter Tabs -->
+    <div class="category-filter-container" id="stories">
+        <button class="filter-btn active" onclick="filterCategory('all', this)"><i class="fa-solid fa-border-all"></i> All Stories</button>
+        <button class="filter-btn" onclick="filterCategory('mind-control', this)"><i class="fa-solid fa-brain"></i> Mind Control</button>
+        <button class="filter-btn" onclick="filterCategory('science', this)"><i class="fa-solid fa-flask"></i> Science & Tech</button>
+        <button class="filter-btn" onclick="filterCategory('health', this)"><i class="fa-solid fa-heart-pulse"></i> Health & Beauty</button>
+        <button class="filter-btn" onclick="filterCategory('life', this)"><i class="fa-solid fa-seedling"></i> Life Motivation</button>
     </div>
 
-    <!-- Stories Section -->
-    <div class="feed-container" id="stories">
-        <div class="section-heading"><i class="fa-solid fa-star" style="color: #eab308;"></i> Featured Life-Changing Story</div>
+    <!-- Stories Feed Container -->
+    <div class="feed-container">
         
-        <div class="story-card">
-            <span class="tag">Mindset & Growth</span>
-            <h2>The Power of Rising After Every Fall</h2>
+        <!-- Story 1: Mind Control -->
+        <div class="story-card" data-category="mind-control">
+            <span class="tag">🧠 Mind Control & Neuroscience</span>
+            <h2>The Art of Mastering Your Attention in a Distracted World</h2>
             <p>
-                Life is not a smooth road without obstacles; it is a journey filled with highs and lows, challenges, and unexpected turns. Every hardship you face is not meant to break you, but to shape you into a stronger and wiser version of yourself. Remember that success is never built overnight. It is the result of small, consistent efforts made every single day, even when no one is watching.
+                In an era dominated by constant notifications and algorithms fighting for your screen time, your focus is your most valuable asset. Neuroscience reveals that every time you give in to a minor distraction, your brain undergoes an 'attention residue' effect, draining your mental stamina. Mastering mind control doesn't mean forcing yourself to sit silently for hours; it starts by reclaiming control over your impulses. By learning to observe your thoughts without immediately acting on them, you create a buffer between emotion and action. Highly successful individuals don't possess super-human willpower—they simply design environments where distractions are minimized and attention is protected.
             </p>
             <div class="lesson-box">
-                <strong>💡 Life Lesson:</strong> Failure is never the end of your story; it is simply a stepping stone toward your greatest achievement.
+                <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you control your reality.
             </div>
         </div>
+
+        <!-- Story 2: Science & Tech -->
+        <div class="story-card" data-category="science">
+            <span class="tag">🧬 Science & Quantum Physics</span>
+            <h2>How Quantum Entanglement Is Changing Our View of Reality</h2>
+            <p>
+                Albert Einstein once famously referred to quantum entanglement as "spooky action at a distance." It describes a phenomenon where two subatomic particles become deeply interconnected, such that changing the state of one instantly affects the other—even if they are separated by billions of light-years. Modern physics is now realizing that the universe may not be a collection of isolated objects, but a unified, interconnected web of energy. This revolutionary breakthrough in quantum mechanics is not only paving the way for superfast quantum computers, but it is also altering how scientists understand consciousness, connection, and the fundamental nature of space-time itself.
+            </p>
+            <div class="lesson-box">
+                <strong>💡 Core Insight:</strong> Everything in existence is far more connected than our senses lead us to believe.
+            </div>
+        </div>
+
+        <!-- Story 3: Health & Beauty -->
+        <div class="story-card" data-category="health">
+            <span class="tag">🌿 Health & Cellular Biology</span>
+            <h2>Autophagy: The Body's Hidden Mechanism for Natural Rejuvenation</h2>
+            <p>
+                In 2016, Japanese biologist Yoshinori Ohsumi won the Nobel Prize for discovering the secrets behind 'Autophagy'—a Greek word meaning 'self-eating.' Autophagy is the natural process where your cells recycle damaged components, clear out toxic proteins, and regenerate newer, healthier cells. This cellular cleanup mechanism is activated during periods of fasting, intense exercise, and deep sleep. It is the body's built-in anti-aging formula that enhances skin health, boosts brain function, and dramatically improves longevity. By simply optimizing sleep quality and giving your digestion a break, you allow your biological system to naturally repair and revitalize itself.
+            </p>
+            <div class="lesson-box">
+                <strong>💡 Core Insight:</strong> True health and beauty start at the cellular level when you give your body time to heal itself.
+            </div>
+        </div>
+
+        <!-- Story 4: Life Motivation -->
+        <div class="story-card" data-category="life">
+            <span class="tag">🌱 Life Motivation</span>
+            <h2>The Power of Rising After Every Fall</h2>
+            <p>
+                Life is not a smooth road without obstacles; it is a journey filled with highs and lows, challenges, and unexpected turns. Every hardship you face is not meant to break you, but to shape you into a stronger and wiser version of yourself. Remember that success is never built overnight. It is the result of small, consistent efforts made every single day, even when no one is watching. Do not compare your journey with others, because everyone is running their own race on their own timeline. Trust the process, embrace the struggles, and keep moving forward with relentless faith in your dreams.
+            </p>
+            <div class="lesson-box">
+                <strong>💡 Core Insight:</strong> Failure is never the end of your story; it is simply a stepping stone toward your greatest achievement.
+            </div>
+        </div>
+
     </div>
 
     <!-- Social Community Section -->
@@ -173,8 +201,28 @@
     </div>
 
     <footer>
-        © MindSparks Knowledge Portal. Built for Life-Changers.
+        © MindSparks Knowledge Portal. Built for Deep Thinkers.
     </footer>
+
+    <!-- Category Filter Script -->
+    <script>
+        function filterCategory(category, btnElement) {
+            // Update Active Class on Buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // Show / Hide Stories
+            const stories = document.querySelectorAll('.story-card');
+            stories.forEach(story => {
+                if (category === 'all' || story.getAttribute('data-category') === category) {
+                    story.style.display = 'block';
+                } else {
+                    story.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
