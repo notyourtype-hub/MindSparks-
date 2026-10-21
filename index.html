@@ -45,7 +45,7 @@
         .hero h1 span { background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 17px; color: var(--text-sub); max-width: 700px; margin: 0 auto; }
 
-        /* Category Filter Tabs (Professional Options) */
+        /* Category Filter Tabs */
         .category-filter-container {
             max-width: 900px;
             margin: 30px auto 20px;
@@ -79,7 +79,7 @@
             background: var(--card-bg);
             border-radius: 16px;
             padding: 32px;
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s;
@@ -88,7 +88,82 @@
         .tag { display: inline-block; background: #f3e8ff; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; }
         .story-card h2 { font-size: 24px; margin-bottom: 14px; color: var(--text-main); }
         .story-card p { font-size: 16px; color: var(--text-sub); margin-bottom: 20px; text-align: justify; line-height: 1.8; }
-        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); }
+        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); margin-bottom: 20px; }
+
+        /* Rating & Interactive Section */
+        .story-interactive {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .rating-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #faf5ff;
+            padding: 12px 18px;
+            border-radius: 10px;
+        }
+        .rating-stars { display: flex; gap: 6px; cursor: pointer; color: #cbd5e1; font-size: 18px; }
+        .rating-stars .fa-star.active { color: #f59e0b; }
+        .rating-text { font-size: 13px; font-weight: 600; color: var(--primary); }
+
+        /* No-Login Comment Section */
+        .comment-section { margin-top: 10px; }
+        .comment-section h4 { font-size: 14px; margin-bottom: 10px; color: var(--text-main); }
+        .comment-input-group { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+        .comment-input-group input, .comment-input-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .comment-input-group input:focus, .comment-input-group textarea:focus { border-color: var(--primary); }
+        .btn-comment {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .comments-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .single-comment { background: #f8fafc; padding: 10px 14px; border-radius: 8px; font-size: 13px; border-left: 3px solid #cbd5e1; }
+        .single-comment .author { font-weight: 700; color: var(--text-main); margin-bottom: 2px; }
+
+        /* Direct Email Contact Box */
+        .email-contact-box {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 40px;
+        }
+        .email-contact-box h3 { font-size: 22px; margin-bottom: 8px; }
+        .email-contact-box p { color: #c7d2fe; font-size: 14px; margin-bottom: 16px; }
+        .mail-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: var(--primary);
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+        .mail-btn:hover { transform: scale(1.03); }
 
         /* Social Channels Grid */
         .social-section { background: var(--card-bg); border-top: 1px solid #e2e8f0; padding: 50px 20px; text-align: center; }
@@ -115,6 +190,7 @@
         <a href="#" class="logo"><i class="fa-solid fa-bolt" style="color: #7c3aed;"></i> Mind<span>Sparks</span></a>
         <div class="nav-links">
             <a href="#stories">Explore Knowledge</a>
+            <a href="#contact">Contact Us</a>
             <a href="#community" class="btn-nav">Join Community</a>
         </div>
     </nav>
@@ -142,10 +218,39 @@
             <span class="tag">🧠 Mind Control & Neuroscience</span>
             <h2>The Art of Mastering Your Attention in a Distracted World</h2>
             <p>
-                In an era dominated by constant notifications and algorithms fighting for your screen time, your focus is your most valuable asset. Neuroscience reveals that every time you give in to a minor distraction, your brain undergoes an 'attention residue' effect, draining your mental stamina. Mastering mind control doesn't mean forcing yourself to sit silently for hours; it starts by reclaiming control over your impulses. By learning to observe your thoughts without immediately acting on them, you create a buffer between emotion and action. Highly successful individuals don't possess super-human willpower—they simply design environments where distractions are minimized and attention is protected.
+                In an era dominated by constant notifications and algorithms fighting for your screen time, your focus is your most valuable asset. Neuroscience reveals that every time you give in to a minor distraction, your brain undergoes an 'attention residue' effect, draining your mental stamina. Mastering mind control doesn't mean forcing yourself to sit silently for hours; it starts by reclaiming control over your impulses. By learning to observe your thoughts without immediately acting on them, you create a buffer between emotion and action.
             </p>
             <div class="lesson-box">
                 <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you control your reality.
+            </div>
+
+            <!-- Interactive Rating & No-Login Comment -->
+            <div class="story-interactive">
+                <div class="rating-box">
+                    <span class="rating-text">Rate this story:</span>
+                    <div class="rating-stars" onclick="rateStory(this)">
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                    </div>
+                </div>
+
+                <div class="comment-section">
+                    <h4>Leave a Comment (No login required):</h4>
+                    <div class="comment-input-group">
+                        <input type="text" placeholder="Your Name (Optional)" class="comment-name">
+                        <textarea rows="2" placeholder="Write your thoughts..." class="comment-text"></textarea>
+                        <button class="btn-comment" onclick="addComment(this)">Post Comment</button>
+                    </div>
+                    <div class="comments-list">
+                        <div class="single-comment">
+                            <div class="author">Alex R.</div>
+                            <div>This completely changed how I manage my phone distractions during work!</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -154,37 +259,44 @@
             <span class="tag">🧬 Science & Quantum Physics</span>
             <h2>How Quantum Entanglement Is Changing Our View of Reality</h2>
             <p>
-                Albert Einstein once famously referred to quantum entanglement as "spooky action at a distance." It describes a phenomenon where two subatomic particles become deeply interconnected, such that changing the state of one instantly affects the other—even if they are separated by billions of light-years. Modern physics is now realizing that the universe may not be a collection of isolated objects, but a unified, interconnected web of energy. This revolutionary breakthrough in quantum mechanics is not only paving the way for superfast quantum computers, but it is also altering how scientists understand consciousness, connection, and the fundamental nature of space-time itself.
+                Albert Einstein once famously referred to quantum entanglement as "spooky action at a distance." It describes a phenomenon where two subatomic particles become deeply interconnected, such that changing the state of one instantly affects the other—even if they are separated by billions of light-years. Modern physics is now realizing that the universe may not be a collection of isolated objects, but a unified, interconnected web of energy.
             </p>
             <div class="lesson-box">
                 <strong>💡 Core Insight:</strong> Everything in existence is far more connected than our senses lead us to believe.
             </div>
-        </div>
 
-        <!-- Story 3: Health & Beauty -->
-        <div class="story-card" data-category="health">
-            <span class="tag">🌿 Health & Cellular Biology</span>
-            <h2>Autophagy: The Body's Hidden Mechanism for Natural Rejuvenation</h2>
-            <p>
-                In 2016, Japanese biologist Yoshinori Ohsumi won the Nobel Prize for discovering the secrets behind 'Autophagy'—a Greek word meaning 'self-eating.' Autophagy is the natural process where your cells recycle damaged components, clear out toxic proteins, and regenerate newer, healthier cells. This cellular cleanup mechanism is activated during periods of fasting, intense exercise, and deep sleep. It is the body's built-in anti-aging formula that enhances skin health, boosts brain function, and dramatically improves longevity. By simply optimizing sleep quality and giving your digestion a break, you allow your biological system to naturally repair and revitalize itself.
-            </p>
-            <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> True health and beauty start at the cellular level when you give your body time to heal itself.
+            <div class="story-interactive">
+                <div class="rating-box">
+                    <span class="rating-text">Rate this story:</span>
+                    <div class="rating-stars" onclick="rateStory(this)">
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star active"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="comment-section">
+                    <h4>Leave a Comment (No login required):</h4>
+                    <div class="comment-input-group">
+                        <input type="text" placeholder="Your Name (Optional)" class="comment-name">
+                        <textarea rows="2" placeholder="Write your thoughts..." class="comment-text"></textarea>
+                        <button class="btn-comment" onclick="addComment(this)">Post Comment</button>
+                    </div>
+                    <div class="comments-list"></div>
+                </div>
             </div>
         </div>
 
-        <!-- Story 4: Life Motivation -->
-        <div class="story-card" data-category="life">
-            <span class="tag">🌱 Life Motivation</span>
-            <h2>The Power of Rising After Every Fall</h2>
-            <p>
-                Life is not a smooth road without obstacles; it is a journey filled with highs and lows, challenges, and unexpected turns. Every hardship you face is not meant to break you, but to shape you into a stronger and wiser version of yourself. Remember that success is never built overnight. It is the result of small, consistent efforts made every single day, even when no one is watching. Do not compare your journey with others, because everyone is running their own race on their own timeline. Trust the process, embrace the struggles, and keep moving forward with relentless faith in your dreams.
-            </p>
-            <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Failure is never the end of your story; it is simply a stepping stone toward your greatest achievement.
-            </div>
-        </div>
+    </div>
 
+    <!-- Direct Email Contact Box -->
+    <div class="email-contact-box" id="contact">
+        <h3>Have Questions or Suggestions? 📩</h3>
+        <p>Want to submit a story, share feedback, or connect with us directly? Drop an email anytime!</p>
+        <!-- Aapki Email ID yahan set kar di gayi hai -->
+        <a href="mailto:juniorabhishek456@gmail.com" class="mail-btn"><i class="fa-solid fa-envelope"></i> Send Direct Email</a>
     </div>
 
     <!-- Social Community Section -->
@@ -204,15 +316,13 @@
         © MindSparks Knowledge Portal. Built for Deep Thinkers.
     </footer>
 
-    <!-- Category Filter Script -->
     <script>
+        // Category Filter
         function filterCategory(category, btnElement) {
-            // Update Active Class on Buttons
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
 
-            // Show / Hide Stories
             const stories = document.querySelectorAll('.story-card');
             stories.forEach(story => {
                 if (category === 'all' || story.getAttribute('data-category') === category) {
@@ -221,6 +331,36 @@
                     story.style.display = 'none';
                 }
             });
+        }
+
+        // Star Rating Interactive
+        function rateStory(starBox) {
+            alert("Thank you for rating this story! ⭐");
+        }
+
+        // No-Login Comment Post
+        function addComment(btn) {
+            const interactiveBox = btn.closest('.comment-section');
+            const nameInput = interactiveBox.querySelector('.comment-name');
+            const textInput = interactiveBox.querySelector('.comment-text');
+            const list = interactiveBox.querySelector('.comments-list');
+
+            if(textInput.value.trim() === "") {
+                alert("Please write a comment first!");
+                return;
+            }
+
+            const authorName = nameInput.value.trim() !== "" ? nameInput.value.trim() : "Anonymous Reader";
+            
+            const newComment = document.createElement('div');
+            newComment.className = 'single-comment';
+            newComment.innerHTML = `<div class="author">${authorName}</div><div>${textInput.value}</div>`;
+            
+            list.appendChild(newComment);
+            
+            textInput.value = "";
+            nameInput.value = "";
+            alert("Comment posted successfully!");
         }
     </script>
 
