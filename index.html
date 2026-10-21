@@ -3,171 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindSparks - Spark Your Potential</title>
+    <title>MindSparks - Knowledge & Life-Changing Stories</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
+            --primary: #7c3aed;
+            --primary-hover: #6d28d9;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
 
-        /* Header */
-        header {
-            background: #0f172a;
-            border-bottom: 1px solid #334155;
-            padding: 20px;
-            text-align: center;
+        /* Modern Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
-        .logo { font-size: 28px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
-        .logo span { color: var(--accent-color); }
+        .logo { font-size: 24px; font-weight: 800; color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-sub); font-weight: 600; font-size: 15px; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-nav { background: var(--primary); color: white !important; padding: 8px 18px; border-radius: 20px; transition: background 0.2s; }
+        .btn-nav:hover { background: var(--primary-hover) !important; }
 
-        .container { max-width: 800px; margin: 30px auto; padding: 0 15px; }
-
-        /* Banner Quote */
-        .quote-box {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        /* Hero Section (Odoo Style) */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .quote-box p { font-size: 18px; font-style: italic; color: #e2e8f0; }
-        .quote-box span { display: block; margin-top: 8px; color: var(--accent-color); font-weight: bold; }
+        .hero h1 { font-size: 42px; font-weight: 800; color: var(--text-main); margin-bottom: 18px; line-height: 1.2; }
+        .hero h1 span { color: var(--primary); background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 18px; color: var(--text-sub); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-        /* Featured Story Section */
+        /* Categories Section (Feature Grid) */
+        .features { max-width: 1100px; margin: 0 auto 50px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .feature-box {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-box:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1); }
+        .feature-icon { font-size: 32px; color: var(--primary); margin-bottom: 12px; }
+        .feature-box h3 { font-size: 18px; margin-bottom: 6px; }
+        .feature-box p { font-size: 13px; color: var(--text-sub); }
+
+        /* Story Feed Cards */
+        .feed-container { max-width: 800px; margin: 0 auto 60px; padding: 0 20px; }
+        .section-heading { font-size: 26px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+        
         .story-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        .story-tag {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-        .story-title { font-size: 22px; margin-bottom: 12px; color: #fff; }
-        .story-content { color: #cbd5e1; font-size: 15px; margin-bottom: 15px; text-align: justify; }
-        .takeaway {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid #22c55e;
-            font-size: 14px;
-            color: #4ade80;
-        }
+        .tag { display: inline-block; background: #f3e8ff; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+        .story-card h2 { font-size: 22px; margin-bottom: 12px; color: var(--text-main); }
+        .story-card p { font-size: 15px; color: var(--text-sub); margin-bottom: 18px; text-align: justify; }
+        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 6px; font-size: 14px; color: var(--text-main); }
 
-        /* Community Links Grid */
-        .community-section {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #334155;
-            margin-bottom: 30px;
-        }
-        .community-section h3 { margin-bottom: 15px; font-size: 20px; }
-        
-        .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
-        }
+        /* Social Channels Grid */
+        .social-section { background: var(--card-bg); border-top: 1px solid #e2e8f0; padding: 50px 20px; text-align: center; }
+        .social-grid { max-width: 700px; margin: 25px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; color: white; text-decoration: none; font-weight: 600; font-size: 14px; transition: transform 0.2s; }
+        .social-btn:hover { transform: translateY(-2px); }
+        .tg { background: #0088cc; }
+        .yt { background: #ff0000; }
+        .ig { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+        .wa { background: #25d366; }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 15px;
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            transition: all 0.3s;
+        footer { text-align: center; padding: 25px; color: var(--text-sub); font-size: 14px; background: #0f172a; color: #94a3b8; }
+
+        @media(max-width: 600px) {
+            .hero h1 { font-size: 30px; }
+            .nav-links { display: none; }
         }
-        .btn:hover { transform: translateY(-3px); }
-
-        .btn-telegram { background: #0088cc; }
-        .btn-youtube { background: #ff0000; }
-        .btn-instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
-        .btn-whatsapp { background: #25d366; }
-
-        /* Footer */
-        footer { text-align: center; padding: 20px; color: var(--text-sub); font-size: 13px; border-top: 1px solid #334155; }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">Mind<span>Sparks</span></a>
-    </header>
-
-    <div class="container">
-
-        <!-- Motivational Quote Banner -->
-        <div class="quote-box">
-            <p>"Zindagi badalne ke liye pehle soch badalni padti hai."</p>
-            <span>- Daily MindSpark</span>
+    <!-- Professional Navbar -->
+    <nav>
+        <a href="#" class="logo"><i class="fa-solid fa-bolt" style="color: #7c3aed;"></i> Mind<span>Sparks</span></a>
+        <div class="nav-links">
+            <a href="#stories">Stories</a>
+            <a href="#knowledge">Knowledge Hub</a>
+            <a href="#community" class="btn-nav">Join Community</a>
         </div>
+    </nav>
 
-        <!-- Life Changing Story 1 -->
+    <!-- Hero Banner (Odoo Style) -->
+    <div class="hero">
+        <h1>Transform Your Life With <span>Powerful Knowledge & Stories</span></h1>
+        <p>Aapki life ko change karne wali inspiring stories, life lessons, aur amazing wisdom — sab ek hi platform par.</p>
+    </div>
+
+    <!-- Feature Categories -->
+    <div class="features" id="knowledge">
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fa-solid fa-fire"></i></div>
+            <h3>Life Lessons</h3>
+            <p>Self-improvement aur mindset change karne ke guides.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Real Stories</h3>
+            <p>Inspiring logon ki sachhi kahaniyan.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>Mindset Sparks</h3>
+            <p>Daily habits aur motivation boost.</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+            <h3>Community</h3>
+            <p>WhatsApp aur Telegram par daily updates.</p>
+        </div>
+    </div>
+
+    <!-- Stories Section -->
+    <div class="feed-container" id="stories">
+        <div class="section-heading"><i class="fa-solid fa-star" style="color: #eab308;"></i> Featured Life-Changing Story</div>
+        
         <div class="story-card">
-            <span class="story-tag">🔥 Inspiring Story</span>
-            <h2 class="story-title">Dairya Aur Mehnat Ka Asli Arth</h2>
-            <p class="story-content">
-                Ek baar ek sculptor (murtikar) ek pathar par chheni aur hathode se vaar kar raha tha. Pathar andar se cheekh utha aur kehne laga, "Mujhe mat maro, bohot dard ho raha hai!" Murtikar ne uss pathar ko chhod diya aur doosra pathar uthaya. Doosre pathar ne har vaar saha aur chup raha. Kuch dino baad wo ek shaandar murti ban gaya.
+            <span class="tag">Dharm & Patience</span>
+            <h2>Dairya Aur Mehnat Ka Asli Arth</h2>
+            <p>
+                Ek baar ek murtikar ek pathar par chheni aur hathode se vaar kar raha tha. Pathar andar se cheekh utha aur kehne laga, "Mujhe mat maro, bohot dard ho raha hai!" Murtikar ne uss pathar ko chhod diya aur doosra pathar uthaya. Doosre pathar ne har vaar saha aur chup raha. Kuch dino baad wo ek shaandar murti ban gaya.
                 <br><br>
                 Jab mandir bana, toh pehla pathar jisne dard nahi saha tha, wo bahar fash par nariyal phodne ke kaam aaya, aur doosra pathar mandir ke andar bhagwan ban kar pooja gaya.
             </p>
-            <div class="takeaway">
+            <div class="lesson-box">
                 <strong>💡 Life Lesson:</strong> Aaj ka struggle aur dard hi kal aapko ek mazboot aur safal insaan banata hai.
             </div>
         </div>
+    </div>
 
-        <!-- Community Channels Section -->
-        <div class="community-section">
-            <h3>Join MindSparks Community 🚀</h3>
-            <p style="color: var(--text-sub); font-size: 14px;">Daily knowledge, motivation, aur updates ke liye humse judein:</p>
-            
-            <div class="btn-grid">
-                <a href="https://t.me/Notyourtypeclose" target="_blank" class="btn btn-telegram">
-                    <i class="fab fa-telegram-plane"></i> Telegram
-                </a>
-                <a href="https://www.youtube.com/@closetorealitytv" target="_blank" class="btn btn-youtube">
-                    <i class="fab fa-youtube"></i> YouTube
-                </a>
-                <a href="https://www.instagram.com/closetorealitytv7" target="_blank" class="btn btn-instagram">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://whatsapp.com/channel/0029VbDvKF35K3zNy8T1au32" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
+    <!-- Social Community Section -->
+    <div class="social-section" id="community">
+        <h2>Join MindSparks Community 🚀</h2>
+        <p style="color: var(--text-sub); margin-top: 8px;">Daily motivation, articles aur naye stories ke liye humse judein:</p>
+
+        <div class="social-grid">
+            <a href="https://t.me/Notyourtypeclose" target="_blank" class="social-btn tg"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://www.youtube.com/@closetorealitytv" target="_blank" class="social-btn yt"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://www.instagram.com/closetorealitytv7" target="_blank" class="social-btn ig"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://whatsapp.com/channel/0029VbDvKF35K3zNy8T1au32" target="_blank" class="social-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
-
     </div>
 
     <footer>
-        © MindSparks Community. All Rights Reserved.
+        © MindSparks Knowledge Portal. Built for Life-Changers.
     </footer>
 
 </body>
