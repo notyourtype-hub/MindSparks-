@@ -106,8 +106,11 @@
             padding: 12px 18px;
             border-radius: 10px;
         }
-        .rating-stars { display: flex; gap: 6px; cursor: pointer; color: #cbd5e1; font-size: 18px; }
-        .rating-stars .fa-star.active { color: #f59e0b; }
+        
+        /* Dynamic Star Rating Styles */
+        .rating-stars { display: flex; gap: 6px; cursor: pointer; color: #cbd5e1; font-size: 20px; }
+        .rating-stars i { transition: color 0.2s ease-in-out; }
+        .rating-stars i.hovered, .rating-stars i.selected { color: #f59e0b; }
         .rating-text { font-size: 13px; font-weight: 600; color: var(--primary); }
 
         /* No-Login Comment Section */
@@ -224,16 +227,16 @@
                 <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you control your reality.
             </div>
 
-            <!-- Interactive Rating & No-Login Comment -->
+            <!-- Interactive Dynamic Rating & No-Login Comment -->
             <div class="story-interactive">
                 <div class="rating-box">
-                    <span class="rating-text">Rate this story:</span>
-                    <div class="rating-stars" onclick="rateStory(this)">
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
+                    <span class="rating-text status-text">Rate this story:</span>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star" data-value="1"></i>
+                        <i class="fa-solid fa-star" data-value="2"></i>
+                        <i class="fa-solid fa-star" data-value="3"></i>
+                        <i class="fa-solid fa-star" data-value="4"></i>
+                        <i class="fa-solid fa-star" data-value="5"></i>
                     </div>
                 </div>
 
@@ -267,13 +270,13 @@
 
             <div class="story-interactive">
                 <div class="rating-box">
-                    <span class="rating-text">Rate this story:</span>
-                    <div class="rating-stars" onclick="rateStory(this)">
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star active"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <span class="rating-text status-text">Rate this story:</span>
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star" data-value="1"></i>
+                        <i class="fa-solid fa-star" data-value="2"></i>
+                        <i class="fa-solid fa-star" data-value="3"></i>
+                        <i class="fa-solid fa-star" data-value="4"></i>
+                        <i class="fa-solid fa-star" data-value="5"></i>
                     </div>
                 </div>
 
@@ -295,7 +298,6 @@
     <div class="email-contact-box" id="contact">
         <h3>Have Questions or Suggestions? 📩</h3>
         <p>Want to submit a story, share feedback, or connect with us directly? Drop an email anytime!</p>
-        <!-- Aapki Email ID yahan set kar di gayi hai -->
         <a href="mailto:juniorabhishek456@gmail.com" class="mail-btn"><i class="fa-solid fa-envelope"></i> Send Direct Email</a>
     </div>
 
@@ -333,10 +335,36 @@
             });
         }
 
-        // Star Rating Interactive
-        function rateStory(starBox) {
-            alert("Thank you for rating this story! ⭐");
-        }
+        // Dynamic Interactive Star Rating Script
+        document.querySelectorAll('.rating-stars').forEach(starContainer => {
+            const stars = starContainer.querySelectorAll('i');
+            const statusText = starContainer.previousElementSibling;
+            let currentRating = 0;
+
+            stars.forEach((star, index) => {
+                // Hover Effects
+                star.addEventListener('mouseover', () => {
+                    stars.forEach((s, idx) => {
+                        if (idx <= index) s.classList.add('hovered');
+                        else s.classList.remove('hovered');
+                    });
+                });
+
+                star.addEventListener('mouseout', () => {
+                    stars.forEach(s => s.classList.remove('hovered'));
+                });
+
+                // Click to Rate
+                star.addEventListener('click', () => {
+                    currentRating = index + 1;
+                    stars.forEach((s, idx) => {
+                        if (idx < currentRating) s.classList.add('selected');
+                        else s.classList.remove('selected');
+                    });
+                    statusText.innerHTML = `You rated: <strong>${currentRating}/5 Stars ⭐</strong>`;
+                });
+            });
+        });
 
         // No-Login Comment Post
         function addComment(btn) {
