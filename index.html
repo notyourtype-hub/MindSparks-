@@ -40,15 +40,53 @@
         .btn-nav:hover { background: var(--primary-hover) !important; }
 
         /* Hero Banner */
-        .hero { text-align: center; padding: 50px 20px 30px; max-width: 900px; margin: 0 auto; }
+        .hero { text-align: center; padding: 40px 20px 20px; max-width: 900px; margin: 0 auto; }
         .hero h1 { font-size: 40px; font-weight: 800; color: var(--text-main); margin-bottom: 14px; line-height: 1.2; }
         .hero h1 span { background: linear-gradient(135deg, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 17px; color: var(--text-sub); max-width: 700px; margin: 0 auto; }
+        .hero p { font-size: 17px; color: var(--text-sub); max-width: 700px; margin: 0 auto 25px; }
+
+        /* Big Professional Search Bar Area */
+        .search-container {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            position: relative;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 40px;
+            padding: 6px 10px 6px 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .search-box:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.2);
+        }
+        .search-box i {
+            color: #94a3b8;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            color: var(--text-main);
+            background: transparent;
+        }
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
 
         /* Category Filter Tabs */
         .category-filter-container {
             max-width: 950px;
-            margin: 30px auto 20px;
+            margin: 0 auto 25px;
             padding: 0 20px;
             display: flex;
             justify-content: center;
@@ -92,6 +130,18 @@
         .story-card ul { margin: 0 0 16px 20px; color: var(--text-sub); font-size: 15px; }
         .story-card ul li { margin-bottom: 8px; }
         .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); margin: 20px 0; }
+
+        /* No Results Found Message */
+        #no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px dashed #cbd5e1;
+            color: var(--text-sub);
+        }
+        #no-results i { font-size: 40px; color: var(--primary); margin-bottom: 10px; }
 
         /* Rating & Interactive Section */
         .story-interactive {
@@ -207,7 +257,15 @@
         <p>Explore deep insights on Mind Control, Modern Science, Life Psychology, Health & Beauty.</p>
     </div>
 
-    <!-- Category Filter Tabs (Updated with Improving Yourself, History, English Stories) -->
+    <!-- Big Interactive Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="searchTopics()" placeholder="Search any topic (e.g., skin, quantum, attention, glow)...">
+        </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
     <div class="category-filter-container" id="stories">
         <button class="filter-btn active" onclick="filterCategory('all', this)"><i class="fa-solid fa-border-all"></i> All Stories</button>
         <button class="filter-btn" onclick="filterCategory('mind-control', this)"><i class="fa-solid fa-brain"></i> Mind Control</button>
@@ -374,6 +432,13 @@
             </div>
         </div>
 
+        <!-- No Results Found Box -->
+        <div id="no-results">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>No stories found matching your search.</h3>
+            <p>Try searching for keywords like "skin", "quantum", "attention", "glow", or "mind".</p>
+        </div>
+
     </div>
 
     <!-- Direct Email Contact Box -->
@@ -401,8 +466,36 @@
     </footer>
 
     <script>
-        // Category Filter
+        // Real-Time Dynamic Search Function
+        function searchTopics() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const stories = document.querySelectorAll('.story-card');
+            const noResults = document.getElementById('no-results');
+            let foundCount = 0;
+
+            stories.forEach(story => {
+                const textContent = story.innerText.toLowerCase();
+                if (textContent.includes(input)) {
+                    story.style.display = 'block';
+                    foundCount++;
+                } else {
+                    story.style.display = 'none';
+                }
+            });
+
+            if (foundCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Category Filter Function
         function filterCategory(category, btnElement) {
+            // Reset Search Bar
+            document.getElementById('searchInput').value = "";
+            document.getElementById('no-results').style.display = 'none';
+
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -466,8 +559,8 @@
             });
         });
 
-        // No-Login Comment Post
-        addComment = function(btn) {
+        // No-Login Comment Post Function
+        function addComment(btn) {
             const interactiveBox = btn.closest('.comment-section');
             const nameInput = interactiveBox.querySelector('.comment-name');
             const textInput = interactiveBox.querySelector('.comment-text');
