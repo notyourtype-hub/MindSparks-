@@ -47,19 +47,19 @@
 
         /* Category Filter Tabs */
         .category-filter-container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 30px auto 20px;
             padding: 0 20px;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         .filter-btn {
             background: #ffffff;
             border: 1px solid #cbd5e1;
             color: var(--text-sub);
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 14px;
@@ -207,13 +207,15 @@
         <p>Explore deep insights on Mind Control, Modern Science, Life Psychology, Health & Beauty.</p>
     </div>
 
-    <!-- Category Filter Tabs -->
+    <!-- Category Filter Tabs (Updated with Improving Yourself, History, English Stories) -->
     <div class="category-filter-container" id="stories">
         <button class="filter-btn active" onclick="filterCategory('all', this)"><i class="fa-solid fa-border-all"></i> All Stories</button>
         <button class="filter-btn" onclick="filterCategory('mind-control', this)"><i class="fa-solid fa-brain"></i> Mind Control</button>
         <button class="filter-btn" onclick="filterCategory('science', this)"><i class="fa-solid fa-flask"></i> Science & Tech</button>
         <button class="filter-btn" onclick="filterCategory('health', this)"><i class="fa-solid fa-heart-pulse"></i> Health & Beauty</button>
-        <button class="filter-btn" onclick="filterCategory('life', this)"><i class="fa-solid fa-seedling"></i> Life Motivation</button>
+        <button class="filter-btn" onclick="filterCategory('improving', this)"><i class="fa-solid fa-chart-line"></i> Improving Yourself</button>
+        <button class="filter-btn" onclick="filterCategory('history', this)"><i class="fa-solid fa-landmark"></i> History</button>
+        <button class="filter-btn" onclick="filterCategory('english-stories', this)"><i class="fa-solid fa-book-open"></i> English Stories</button>
     </div>
 
     <!-- Stories Feed Container -->
@@ -294,7 +296,7 @@
             </div>
         </div>
 
-        <!-- Story 3: Health & Beauty (NEW DETAILED STORY) -->
+        <!-- Story 3: Health & Beauty -->
         <div class="story-card" data-category="health">
             <span class="tag">✨ Health & Natural Beauty</span>
             <h2>The Ultimate Science-Backed Guide to Radiant Skin & Clear Complexion</h2>
@@ -465,7 +467,7 @@
         });
 
         // No-Login Comment Post
-        function addComment(btn) {
+        addComment = function(btn) {
             const interactiveBox = btn.closest('.comment-section');
             const nameInput = interactiveBox.querySelector('.comment-name');
             const textInput = interactiveBox.querySelector('.comment-text');
