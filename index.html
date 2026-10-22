@@ -87,8 +87,11 @@
         .story-card:hover { transform: translateY(-2px); }
         .tag { display: inline-block; background: #f3e8ff; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; }
         .story-card h2 { font-size: 24px; margin-bottom: 14px; color: var(--text-main); }
-        .story-card p { font-size: 16px; color: var(--text-sub); margin-bottom: 20px; text-align: justify; line-height: 1.8; }
-        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); margin-bottom: 20px; }
+        .story-card h3 { font-size: 18px; margin: 18px 0 8px; color: var(--primary); }
+        .story-card p { font-size: 16px; color: var(--text-sub); margin-bottom: 16px; text-align: justify; line-height: 1.8; }
+        .story-card ul { margin: 0 0 16px 20px; color: var(--text-sub); font-size: 15px; }
+        .story-card ul li { margin-bottom: 8px; }
+        .lesson-box { background: #f8fafc; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 6px; font-size: 15px; color: var(--text-main); margin: 20px 0; }
 
         /* Rating & Interactive Section */
         .story-interactive {
@@ -265,6 +268,84 @@
             </p>
             <div class="lesson-box">
                 <strong>💡 Core Insight:</strong> Everything in existence is far more connected than our senses lead us to believe.
+            </div>
+
+            <div class="story-interactive">
+                <div class="rating-box">
+                    <span class="rating-text status-text">Rate this story:</span>
+                    <div class="rating-stars">
+                        <i class="fa-regular fa-star" data-value="1"></i>
+                        <i class="fa-regular fa-star" data-value="2"></i>
+                        <i class="fa-regular fa-star" data-value="3"></i>
+                        <i class="fa-regular fa-star" data-value="4"></i>
+                        <i class="fa-regular fa-star" data-value="5"></i>
+                    </div>
+                </div>
+
+                <div class="comment-section">
+                    <h4>Leave a Comment (No login required):</h4>
+                    <div class="comment-input-group">
+                        <input type="text" placeholder="Your Name (Optional)" class="comment-name">
+                        <textarea rows="2" placeholder="Write your thoughts..." class="comment-text"></textarea>
+                        <button class="btn-comment" onclick="addComment(this)">Post Comment</button>
+                    </div>
+                    <div class="comments-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story 3: Health & Beauty (NEW DETAILED STORY) -->
+        <div class="story-card" data-category="health">
+            <span class="tag">✨ Health & Natural Beauty</span>
+            <h2>The Ultimate Science-Backed Guide to Radiant Skin & Clear Complexion</h2>
+            <p>
+                True facial glow is not created by expensive cosmetics or synthetic chemicals—it is the outward reflection of inner cellular health, proper blood circulation, and consistent daily habits. Understanding how your skin regenerates allows you to repair damage, eliminate dark spots, and achieve a naturally glowing face.
+            </p>
+
+            <h3>1. How to Grow & Regenerate Your Facial Glow</h3>
+            <p>
+                Your skin replaces its cells every 28 to 40 days. To accelerate this natural process and build healthy, clear facial skin:
+            </p>
+            <ul>
+                <li><strong>Gentle Daily Cleansing:</strong> Wash your face twice daily with a sulfate-free cleanser to remove excess oil and pollution without stripping natural moisture.</li>
+                <li><strong>Sun Protection (SPF 30+):</strong> UV rays destroy collagen and cause premature aging. Daily sunscreen application is mandatory, even on cloudy days.</li>
+                <li><strong>Consistent Hydration:</strong> Apply a light hyaluronic acid or lightweight moisturizer to lock in cellular hydration immediately after washing.</li>
+            </ul>
+
+            <h3>2. Removing Dark Spots & Hyperpigmentation</h3>
+            <p>
+                Dark spots occur when skin cells produce excess melanin due to sun damage, acne scars, or inflammation. To reverse hyperpigmentation naturally and effectively:
+            </p>
+            <ul>
+                <li><strong>Vitamin C Serums:</strong> Topical Vitamin C blocks melanin synthesis, brightening dark spots and evening out skin tone over 4–6 weeks.</li>
+                <li><strong>Niacinamide (Vitamin B3):</strong> Reduces redness, controls sebum production, and prevents dark spots from transferring to upper skin layers.</li>
+                <li><strong>Aloe Vera & Rosewater:</strong> Natural aloe vera gel containing aloesin helps break down pigmentation safely without harsh peeling.</li>
+            </ul>
+
+            <h3>3. Daily Maintenance & Healthy Skincare Routine</h3>
+            <p>
+                Maintaining clear skin requires a disciplined, simple routine rather than using dozens of products:
+            </p>
+            <ul>
+                <li><strong>8 Hours of Quality Sleep:</strong> Growth hormones peak during deep sleep, repairing damaged tissue and preventing dark circles.</li>
+                <li><strong>Change Pillowcases Weekly:</strong> Dirt and bacteria on pillowcases are a major hidden cause of breakouts and acne.</li>
+                <li><strong>Avoid Touching Your Face:</strong> Hands carry bacteria that trigger inflammation and breakouts.</li>
+            </ul>
+
+            <h3>4. What to Eat and Drink for Naturally Glowing Skin</h3>
+            <p>
+                Your diet directly dictates your skin's texture and clarity. Nourishing your body from within yields long-lasting results:
+            </p>
+            <ul>
+                <li><strong>Drink 3 Liters of Water Daily:</strong> Flushes out toxins, maintains skin elasticity, and prevents dryness.</li>
+                <li><strong>Green Tea & Herbal Infusions:</strong> Rich in antioxidants (EGCG) that fight free radicals and reduce facial redness.</li>
+                <li><strong>Antioxidant-Rich Foods:</strong> Berries, tomatoes (rich in lycopene), carrots (beta-carotene), and spinach promote healthy cell turnover.</li>
+                <li><strong>Healthy Fats (Omega-3):</strong> Walnuts, flaxseeds, and chia seeds strengthen the skin's moisture barrier and keep it smooth.</li>
+                <li><strong>Avoid Refined Sugars & Fried Foods:</strong> High sugar intake leads to glycation, breaking down collagen and triggering acne flare-ups.</li>
+            </ul>
+
+            <div class="lesson-box">
+                <strong>💡 Core Insight:</strong> Great skin is 80% internal nourishment and 20% gentle external care. Consistency over short-term quick fixes always wins.
             </div>
 
             <div class="story-interactive">
