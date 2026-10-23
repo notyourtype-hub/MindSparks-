@@ -232,32 +232,8 @@
             <h2>Smartphone Ultra HD Wallpapers Collection</h2>
             <p>Optimized specifically for mobile screens. Choose your preferred pixel resolution to download instantly.</p>
 
-            <div class="wallpaper-grid">
-                <div class="wallpaper-item">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500" alt="Neon Mobile Wallpaper">
-                    <div class="wallpaper-info">
-                        <h4>Cyber Neon Vertical</h4>
-                        <div class="download-options">
-                           <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=720', 'Cyber_Neon_720p.jpg')" class="btn-dl">720p HD</a>
-                           <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080', 'Cyber_Neon_1080p.jpg')" class="btn-dl">1080p FHD</a>
-                            <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160', 'Cyber_Neon_4K.jpg')" class="btn-dl">4K Ultra</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wallpaper-item">
-                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500" alt="Dark Vibe Mobile">
-                    <div class="wallpaper-info">
-                        <h4>Dark Aesthetic Vibe</h4>
-                        <div class="download-options">
-                            <a href="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=720" target="_blank" class="btn-dl">720p HD</a>
-                            <a href="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1080" target="_blank" class="btn-dl">1080p FHD</a>
-                            <a href="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=2160" target="_blank" class="btn-dl">4K Ultra</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="wallpaper-grid" id="wallpaper-container"></div>
+       
 
         <!-- SECTION 2: DESKTOP WALLPAPERS -->
         <div class="story-card" data-category="desktop-wallpapers">
@@ -265,31 +241,7 @@
             <h2>PC & Laptop High-Resolution Wallpapers</h2>
             <p>Designed for widescreen monitors and laptops. Select 720p, 1080p or 4K resolution options below.</p>
 
-            <div class="wallpaper-grid">
-                <div class="wallpaper-item">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600" alt="Ocean Desktop">
-                    <div class="wallpaper-info">
-                        <h4>Ocean Sunset Widescreen</h4>
-                        <div class="download-options">
-                            <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1280" target="_blank" class="btn-dl">720p HD</a>
-                            <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920" target="_blank" class="btn-dl">1080p FHD</a>
-                            <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=3840" target="_blank" class="btn-dl">4K Ultra</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wallpaper-item">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600" alt="Space Desktop">
-                    <div class="wallpaper-info">
-                        <h4>Deep Space Nebula PC</h4>
-                        <div class="download-options">
-                            <a href="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1280" target="_blank" class="btn-dl">720p HD</a>
-                            <a href="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920" target="_blank" class="btn-dl">1080p FHD</a>
-                            <a href="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=3840" target="_blank" class="btn-dl">4K Ultra</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="wallpaper-grid" id="desktop-wallpaper-container"></div>
         </div>
 
         <!-- Story 1: Mind Control -->
@@ -583,6 +535,84 @@
               })
               .catch(() => alert('Image download failed. Right click image and save.'));
       }
-  </script>
+  // 1. Wallpapers ka Data Array (Yahan tu apne saare mobile aur desktop wallpapers add kar payega)
+const wallpapersData = [
+    // Mobile Wallpaper Example
+    {
+        title: "Cyber Neon Vertical",
+        type: "mobile",
+        thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500",
+        url720: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=720",
+        url1080: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080",
+        url4k: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160",
+        fileName: "Cyber_Neon"
+    },
+    // Desktop Wallpaper Example
+    {
+        title: "Ocean Sunset Widescreen",
+        type: "desktop",
+        thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
+        url720: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1280",
+        url1080: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920",
+        url4k: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=3840",
+        fileName: "Ocean_Desktop"
+    }
+];
+<script>
+// 2. Direct Download Function (Blob fetch to avoid new tab)
+function downloadImage(imgUrl, fileName) {
+    fetch(imgUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(() => alert('Image download failed. Right click image and save.'));
+}
+
+// 3. Render Function (Mobile aur Desktop dono ko unke sahi container me dalega)
+function renderWallpapers() {
+    const mobileContainer = document.getElementById('wallpaper-container');
+    const desktopContainer = document.getElementById('desktop-wallpaper-container');
+    
+    if (mobileContainer) mobileContainer.innerHTML = "";
+    if (desktopContainer) desktopContainer.innerHTML = "";
+    
+    wallpapersData.forEach(wp => {
+        const card = document.createElement('div');
+        card.className = 'wallpaper-item';
+        card.setAttribute('data-category', wp.type + '-wallpapers');
+        
+        card.innerHTML = `
+            <img src="${wp.thumbnail}" alt="${wp.title}">
+            <div class="wallpaper-info">
+                <h4>${wp.title}</h4>
+                <div class="download-options">
+                    <a href="javascript:void(0)" onclick="downloadImage('${wp.url720}', '${wp.fileName}_720p.jpg')" class="btn-dl">720p HD</a>
+                    <a href="javascript:void(0)" onclick="downloadImage('${wp.url1080}', '${wp.fileName}_1080p.jpg')" class="btn-dl">1080p FHD</a>
+                    <a href="javascript:void(0)" onclick="downloadImage('${wp.url4k}', '${wp.fileName}_4K.jpg')" class="btn-dl">4K Ultra</a>
+                </div>
+            </div>
+        `;
+        
+        if (wp.type === 'mobile' && mobileContainer) {
+            mobileContainer.appendChild(card);
+        } else if (wp.type === 'desktop' && desktopContainer) {
+            desktopContainer.appendChild(card);
+        }
+    });
+}
+
+// Page load hote hi wallpapers automatically load ho jayein
+window.onload = function() {
+    renderWallpapers();
+};>
+    </script>     
   </body>
   </html>
