@@ -238,9 +238,9 @@
                     <div class="wallpaper-info">
                         <h4>Cyber Neon Vertical</h4>
                         <div class="download-options">
-                            <a href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=720" target="_blank" class="btn-dl">720p HD</a>
-                            <a href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080" target="_blank" class="btn-dl">1080p FHD</a>
-                            <a href="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160" target="_blank" class="btn-dl">4K Ultra</a>
+                           <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=720', 'Cyber_Neon_720p.jpg')" class="btn-dl">720p HD</a>
+                           <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080', 'Cyber_Neon_1080p.jpg')" class="btn-dl">1080p FHD</a>
+                            <a href="javascript:void(0)" onclick="downloadImage('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160', 'Cyber_Neon_4K.jpg')" class="btn-dl">4K Ultra</a>
                         </div>
                     </div>
                 </div>
@@ -564,9 +564,25 @@
             
             list.appendChild(newComment);
             textInput.value = ""; nameInput.value = "";
-            alert("Comment posted successfully!");
-        }
-    </script>
-
-</body>
-</html>
+                    alert("Comment posted successfully!");
+     }
+  
+      // Direct Download Function for Wallpapers
+      function downloadImage(imgUrl, fileName) {
+          fetch(imgUrl)
+              .then(response => response.blob())
+              .then(blob => {
+                  const url = window.URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.style.display = 'none';
+                  a.href = url;
+                  a.download = fileName;
+                  document.body.appendChild(a);
+                  a.click();
+                  window.URL.revokeObjectURL(url);
+              })
+              .catch(() => alert('Image download failed. Right click image and save.'));
+      }
+  </script>
+  </body>
+  </html>
