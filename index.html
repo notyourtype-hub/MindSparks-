@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -533,13 +533,19 @@
             </div>
         </div>
 
-        <!-- Story 3: Health & Beauty -->
+        <!-- Story 3: Health & Beauty (Detailed Original Content Restored) -->
         <div class="story-card" data-category="health-beauty">
             <span class="tag"><i class="fa-solid fa-heart-pulse"></i> Detailed Skincare Routine & Health</span>
             <h2>The Science of Glowing Skin & Natural Facials</h2>
-            <p>Achieving clear and radiant skin goes beyond surface-level treatments; it relies heavily on cellular hydration, proper blood circulation, and consistent daily habits. Skin cells regenerate roughly every 28 to 48 days to accelerate this natural process and avoid buildup, clear facial skin.</p>
+            <p>Achieving clear and radiant skin goes beyond surface-level treatments; it relies heavily on cellular hydration, proper blood circulation, and consistent daily habits. Skin cells regenerate roughly every 28 to 48 days. To accelerate this natural process and prevent buildup, incorporate gentle exfoliation and natural facial exercises.</p>
+            <p><strong>1. How to Grow & Rejuvenate Your Facial Muscles:</strong> Just like muscles elsewhere in your body, facial exercises help tone underlying tissue and promote healthy blood flow, giving your skin a natural lift and youthful glow.</p>
+            <p><strong>2. Daily Hydration & Internal Cleansing:</strong> Drinking 3 liters of water daily flushes out toxins from your system, improves skin elasticity, and prevents premature aging and dullness.</p>
+            <p><strong>3. Removing Dark Spots & Hyperpigmentation:</strong> UV exposure and pollution cause stubborn dark spots. Ingredients like Vitamin C, natural kojic acid, and consistent sunscreen use effectively target hyperpigmentation without harsh side effects.</p>
+            <p><strong>4. Daily Skincare Routine & Balancing Sealer:</strong> Cleansing clear skin requires a disciplined, simple routine rather than overloading your skin with dozens of conflicting products.</p>
+            <p><strong>5. The Importance of Quality Sleep:</strong> Deep sleep is when cellular repair peaks. Lack of sleep triggers cortisol spikes, resulting in dark circles, dull complexion, and weakened skin barrier.</p>
+            <p><strong>6. What to Eat and Drink for Naturally Glowing Complexion:</strong> Your diet directly dictates your skin's structural integrity. Nourishing your body from within yields long-lasting results.</p>
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Drinking 3 Liters of Water Daily flushes out toxins, stabilizes skin elasticity, and promotes glowing, vibrant skin.
+                <strong>💡 Core Insight:</strong> Consistency over short-term quick fixes always wins. Feed your body clean water, wholesome nutrients, and protect your skin daily.
             </div>
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
@@ -710,38 +716,34 @@
             });
         }
 
-       // Dynamic 20,000 Wallpapers Generator (10k Mobile + 10k Desktop)
-const wallpapersData = [];
+        // 5. Dynamic 20,000 Wallpapers Generator (10k Mobile + 10k Desktop)
+        const wallpapersData = [];
 
-// 10,000 Mobile Wallpapers
-for (let i = 1; i <= 10000; i++) {
-    wallpapersData.push({
-        title: `Mobile Wallpaper #${i}`,
-        type: "mobile",
-        thumbnail: `https://picsum.photos/seed/mob${i}/300/500`,
-        url720: `https://picsum.photos/seed/mob${i}/720/1280`,
-        url1080: `https://picsum.photos/seed/mob${i}/1080/1920`,
-        url4k: `https://picsum.photos/seed/mob${i}/2160/3840`,
-        fileName: `Mobile_Wallpaper_${i}`
-    });
-}
+        for (let i = 1; i <= 10000; i++) {
+            wallpapersData.push({
+                title: `Mobile Wallpaper #${i}`,
+                type: "mobile",
+                thumbnail: `https://picsum.photos/seed/mob${i}/300/500`,
+                url720: `https://picsum.photos/seed/mob${i}/720/1280`,
+                url1080: `https://picsum.photos/seed/mob${i}/1080/1920`,
+                url4k: `https://picsum.photos/seed/mob${i}/2160/3840`,
+                fileName: `Mobile_Wallpaper_${i}`
+            });
+        }
 
-// 10,000 Desktop Wallpapers
-for (let i = 1; i <= 10000; i++) {
-    wallpapersData.push({
-        title: `Desktop Wallpaper #${i}`,
-        type: "desktop",
-        thumbnail: `https://picsum.photos/seed/desk${i}/500/300`,
-        url720: `https://picsum.photos/seed/desk${i}/1280/720`,
-        url1080: `https://picsum.photos/seed/desk${i}/1920/1080`,
-        url4k: `https://picsum.photos/seed/desk${i}/3840/2160`,
-        fileName: `Desktop_Wallpaper_${i}`
-    });
-}
-            }
-        ];
+        for (let i = 1; i <= 10000; i++) {
+            wallpapersData.push({
+                title: `Desktop Wallpaper #${i}`,
+                type: "desktop",
+                thumbnail: `https://picsum.photos/seed/desk${i}/500/300`,
+                url720: `https://picsum.photos/seed/desk${i}/1280/720`,
+                url1080: `https://picsum.photos/seed/desk${i}/1920/1080`,
+                url4k: `https://picsum.photos/seed/desk${i}/3840/2160`,
+                fileName: `Desktop_Wallpaper_${i}`
+            });
+        }
 
-        // 6. Render Wallpapers Function
+        // 6. Render Wallpapers Function (Optimized to prevent browser freeze)
         function renderWallpapers() {
             const mobileContainer = document.getElementById('wallpaper-container');
             const desktopContainer = document.getElementById('desktop-wallpaper-container');
@@ -749,7 +751,11 @@ for (let i = 1; i <= 10000; i++) {
             if (mobileContainer) mobileContainer.innerHTML = "";
             if (desktopContainer) desktopContainer.innerHTML = "";
             
-            wallpapersData.forEach(wp => {
+            const mobileItems = wallpapersData.filter(wp => wp.type === 'mobile').slice(0, 50);
+            const desktopItems = wallpapersData.filter(wp => wp.type === 'desktop').slice(0, 50);
+            const displayList = [...mobileItems, ...desktopItems];
+            
+            displayList.forEach(wp => {
                 const card = document.createElement('div');
                 card.className = 'wallpaper-item';
                 card.setAttribute('data-category', wp.type + '-wallpapers');
