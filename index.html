@@ -26,7 +26,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* Navigation Bar */
@@ -184,8 +184,8 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 35px;
+            margin-bottom: 35px;
             transition: transform 0.3s;
         }
 
@@ -212,8 +212,15 @@
 
         .story-card p {
             color: var(--text-muted);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 1.05rem;
+        }
+
+        .chapter-heading {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            font-weight: 700;
         }
 
         .lesson-box {
@@ -221,7 +228,7 @@
             border-left: 4px solid var(--primary);
             padding: 15px 20px;
             border-radius: 0 8px 8px 0;
-            margin-bottom: 25px;
+            margin: 20px 0;
         }
 
         .lesson-box strong {
@@ -231,7 +238,7 @@
         /* Wallpaper Grid & Cards */
         .wallpaper-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -247,7 +254,7 @@
 
         .wallpaper-item img {
             width: 100%;
-            height: 350px;
+            height: 320px;
             object-fit: cover;
         }
 
@@ -260,13 +267,13 @@
         }
 
         .wallpaper-info h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-main);
         }
 
         .download-options {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             margin-top: auto;
         }
 
@@ -278,7 +285,7 @@
             padding: 6px;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             border: 1px solid rgba(255,215,0,0.2);
             transition: all 0.2s;
@@ -454,20 +461,20 @@
     <!-- Hero Banner -->
     <section class="hero" id="explore">
         <h1>Transform Your Thinking with <span>Deep Stories & Wallpapers</span></h1>
-        <p>Explore categories and download Ultra HD Wallpapers with multi-resolution options.</p>
+        <p>Explore chapters of knowledge and download 500+ Mobile & Desktop Ultra HD Wallpapers.</p>
         
         <!-- Search Bar -->
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" onkeyup="searchTopics()" placeholder="Search categories, mobile wallpapers, desktop wallpapers, history...">
+            <input type="text" id="searchInput" onkeyup="searchTopics()" placeholder="Search chapters, mobile wallpapers, desktop wallpapers, history...">
         </div>
     </section>
 
     <!-- Category Filter Tabs -->
     <div class="filter-container">
         <button class="filter-btn active" onclick="filterCategory('all', this)"><i class="fa-solid fa-border-all"></i> All Categories</button>
-        <button class="filter-btn" onclick="filterCategory('mobile-wallpapers', this)"><i class="fa-solid fa-mobile-screen"></i> Mobile Wallpapers</button>
-        <button class="filter-btn" onclick="filterCategory('desktop-wallpapers', this)"><i class="fa-solid fa-desktop"></i> Desktop Wallpapers</button>
+        <button class="filter-btn" onclick="filterCategory('mobile-wallpapers', this)"><i class="fa-solid fa-mobile-screen"></i> Mobile Wallpapers (500)</button>
+        <button class="filter-btn" onclick="filterCategory('desktop-wallpapers', this)"><i class="fa-solid fa-desktop"></i> Desktop Wallpapers (500)</button>
         <button class="filter-btn" onclick="filterCategory('mind-control', this)"><i class="fa-solid fa-brain"></i> Mind Control</button>
         <button class="filter-btn" onclick="filterCategory('science-tech', this)"><i class="fa-solid fa-atom"></i> Science & Tech</button>
         <button class="filter-btn" onclick="filterCategory('health-beauty', this)"><i class="fa-solid fa-heart-pulse"></i> Health & Beauty</button>
@@ -481,28 +488,36 @@
 
         <!-- SECTION 1: MOBILE WALLPAPERS -->
         <div class="story-card" data-category="mobile-wallpapers">
-            <span class="tag"><i class="fa-solid fa-mobile-screen"></i> Mobile Wallpapers (Vertical HD/4K)</span>
-            <h2>Smartphone Ultra HD Wallpapers Collection</h2>
-            <p>Optimized specifically for mobile screens. Choose your preferred pixel resolution to download instantly.</p>
+            <span class="tag"><i class="fa-solid fa-mobile-screen"></i> Mobile Wallpapers Collection</span>
+            <h2>Smartphone Ultra HD Wallpapers (500 Items)</h2>
+            <p>Optimized specifically for vertical mobile screens. Choose your preferred pixel resolution to download instantly.</p>
             <div class="wallpaper-grid" id="wallpaper-container"></div>
         </div>
 
         <!-- SECTION 2: DESKTOP WALLPAPERS -->
         <div class="story-card" data-category="desktop-wallpapers">
-            <span class="tag"><i class="fa-solid fa-desktop"></i> Desktop Wallpapers (Widescreen 4K)</span>
-            <h2>PC & Laptop High-Resolution Wallpapers</h2>
+            <span class="tag"><i class="fa-solid fa-desktop"></i> Desktop Wallpapers Collection</span>
+            <h2>PC & Laptop Widescreen Wallpapers (500 Items)</h2>
             <p>Designed for widescreen monitors and laptops. Select 720p, 1080p or 4K resolution options below.</p>
             <div class="wallpaper-grid" id="desktop-wallpaper-container"></div>
         </div>
 
-        <!-- Story 1: Mind Control -->
+        <!-- CHAPTER 1: Mind Control -->
         <div class="story-card" data-category="mind-control">
             <span class="tag"><i class="fa-solid fa-brain"></i> Mind Control & Neuroscience</span>
-            <h2>The Art of Mastering Your Attention in a Distracted World</h2>
-            <p>In an era dominated by constant notifications and algorithms fighting for your screen time, your focus is your most valuable asset. Neuroscience reveals that every time you give in to a minor distraction, your brain undergoes an 'attention residue' effect, draining your mental stamina. Mastering mind control doesn't mean forcing yourself to sit silently; it starts by reclaiming control over your impulses.</p>
+            <h2>Chapter 1: The Architecture of Human Attention & Impulse Control</h2>
+            <p>In the modern digital epoch, the human mind faces an unprecedented barrage of stimuli. Algorithms engineered by tech giants are systematically designed to hijack dopamine pathways, turning casual scrollers into compulsive consumers. Understanding how cognitive control operates requires looking deep into the prefrontal cortex—the seat of executive decision-making—and contrasting it with the primitive amygdala.</p>
+            
+            <div class="chapter-heading">The Positive Side: Mastery & Flow States</div>
+            <p>When you successfully harness mind control, you unlock the state of 'Flow'. Mental clarity sharpens, emotional resilience shields you from trivial setbacks, and you gain the profound ability to direct your focus like a laser beam toward long-term ambitions.</p>
+            
+            <div class="chapter-heading">The Negative Side: Attention Residue & Cognitive Fatigue</div>
+            <p>Conversely, failing to govern your attention leads to chronic fragmentation. Every notification checked creates 'attention residue', leaving a fraction of your cognitive bandwidth trapped in the previous distraction. Over time, this breeds anxiety, short attention spans, and decision fatigue.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you control your reality.
+                <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you dictate the trajectory of your reality.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -514,14 +529,22 @@
             </div>
         </div>
 
-        <!-- Story 2: Science & Tech -->
+        <!-- CHAPTER 2: Science & Tech -->
         <div class="story-card" data-category="science-tech">
             <span class="tag"><i class="fa-solid fa-atom"></i> Quantum Physics & Cosmos</span>
-            <h2>How Quantum Entanglement Is Changing Our View of Reality</h2>
-            <p>Albert Einstein famously referred to quantum entanglement as "spooky action at a distance." It describes a phenomenon where two subatomic particles become deeply interconnected, such that the state of one instantly dictates the state of the other, no matter how far separated they are in the universe.</p>
+            <h2>Chapter 2: The Quantum Universe & Technological Singularity</h2>
+            <p>Science has evolved from classical Newtonian mechanics into the bizarre, counter-intuitive realms of quantum physics and relativity. Albert Einstein famously rejected quantum entanglement as "spooky action at a distance," yet modern physics proves that subatomic particles across vast distances remain invisibly linked.</p>
+            
+            <div class="chapter-heading">The Breakthroughs of Quantum Mechanics</div>
+            <p>The positive implications of quantum computing and advanced tech promise to solve complex medical, cryptographic, and ecological challenges in mere seconds, revolutionizing human civilization.</p>
+            
+            <div class="chapter-heading">The Technological Risks</div>
+            <p>On the flip side, unbridled technological advancement introduces existential risks, including automated warfare, loss of privacy through surveillance capitalism, and ethical dilemmas regarding artificial superintelligence.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Everything in existence is far more connected than our senses lead us to believe.
+                <strong>💡 Core Insight:</strong> Science illuminates the hidden architecture of the universe, proving that everything is far more interconnected than our senses perceive.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -533,20 +556,28 @@
             </div>
         </div>
 
-        <!-- Story 3: Health & Beauty (Detailed Original Content Restored) -->
+        <!-- CHAPTER 3: Health & Beauty -->
         <div class="story-card" data-category="health-beauty">
-            <span class="tag"><i class="fa-solid fa-heart-pulse"></i> Detailed Skincare Routine & Health</span>
-            <h2>The Science of Glowing Skin & Natural Facials</h2>
-            <p>Achieving clear and radiant skin goes beyond surface-level treatments; it relies heavily on cellular hydration, proper blood circulation, and consistent daily habits. Skin cells regenerate roughly every 28 to 48 days. To accelerate this natural process and prevent buildup, incorporate gentle exfoliation and natural facial exercises.</p>
-            <p><strong>1. How to Grow & Rejuvenate Your Facial Muscles:</strong> Just like muscles elsewhere in your body, facial exercises help tone underlying tissue and promote healthy blood flow, giving your skin a natural lift and youthful glow.</p>
-            <p><strong>2. Daily Hydration & Internal Cleansing:</strong> Drinking 3 liters of water daily flushes out toxins from your system, improves skin elasticity, and prevents premature aging and dullness.</p>
-            <p><strong>3. Removing Dark Spots & Hyperpigmentation:</strong> UV exposure and pollution cause stubborn dark spots. Ingredients like Vitamin C, natural kojic acid, and consistent sunscreen use effectively target hyperpigmentation without harsh side effects.</p>
-            <p><strong>4. Daily Skincare Routine & Balancing Sealer:</strong> Cleansing clear skin requires a disciplined, simple routine rather than overloading your skin with dozens of conflicting products.</p>
-            <p><strong>5. The Importance of Quality Sleep:</strong> Deep sleep is when cellular repair peaks. Lack of sleep triggers cortisol spikes, resulting in dark circles, dull complexion, and weakened skin barrier.</p>
-            <p><strong>6. What to Eat and Drink for Naturally Glowing Complexion:</strong> Your diet directly dictates your skin's structural integrity. Nourishing your body from within yields long-lasting results.</p>
+            <span class="tag"><i class="fa-solid fa-heart-pulse"></i> Skincare & Internal Wellness</span>
+            <h2>Chapter 3: The Biological Blueprint of Radiant Health & Skincare</h2>
+            <p>Achieving clear skin and optimal vitality is not a matter of quick fixes; it requires understanding cellular regeneration cycles. Skin cells renew every 28 to 48 days, depending on metabolic health and hydration.</p>
+            
+            <div class="chapter-heading">1. Facial Anatomy & Rejuvenation</div>
+            <p>Facial exercises and targeted massage promote blood circulation, bringing oxygen and essential nutrients to facial tissues, preventing premature sagging naturally.</p>
+            
+            <div class="chapter-heading">2. Internal Cleansing & Hydration</div>
+            <p>Consuming adequate water daily flushes metabolic toxins, maintains skin turgor, and keeps joints and organs lubricated.</p>
+            
+            <div class="chapter-heading">3. Combatting Hyperpigmentation</div>
+            <p>UV radiation triggers melanin overproduction. Consistent sun protection and active ingredients like Vitamin C are vital to reverse dark spots.</p>
+            
+            <div class="chapter-heading">4. The Role of Deep Sleep</div>
+            <p>Sleep deprivation spikes cortisol, degrading collagen and resulting in dark circles and dull complexion. Quality sleep is nature's ultimate restorative therapy.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Consistency over short-term quick fixes always wins. Feed your body clean water, wholesome nutrients, and protect your skin daily.
+                <strong>💡 Core Insight:</strong> True beauty and health stem from consistent daily disciplines—clean hydration, wholesome nutrition, and restorative rest.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -558,14 +589,22 @@
             </div>
         </div>
 
-        <!-- Story 4: Improving Yourself -->
+        <!-- CHAPTER 4: Improving Yourself -->
         <div class="story-card" data-category="improving-yourself">
-            <span class="tag"><i class="fa-solid fa-chart-line"></i> Self-Improvement</span>
-            <h2>The Compound Effect: Why 1% Better Every Day Beats Radical Changes</h2>
-            <p>Self-improvement is rarely about giant leaps; revolutionary loops outlast inconsistent tiny increments. Compound your investment toward your true potential. If you get 1% better each day for a year, you'll end up 37 times better by the end of your system.</p>
+            <span class="tag"><i class="fa-solid fa-chart-line"></i> Self-Improvement & Systems</span>
+            <h2>Chapter 4: The Compound Effect & Systems Over Goals</h2>
+            <p>Most people fail in personal development because they rely on sheer willpower and monumental goals rather than sustainable systems. True transformation is built through tiny, imperceptible daily habits that compound over time.</p>
+            
+            <div class="chapter-heading">The Positive Framework: 1% Rule</div>
+            <p>Improving by just 1% every single day results in a 37-fold improvement over the course of a year. Small wins build momentum and compound into extraordinary results.</p>
+            
+            <div class="chapter-heading">The Pitfall: Goal Obsession without Systems</div>
+            <p>Fixating solely on outcomes without building robust daily systems creates temporary spikes in motivation followed by burnout and stagnation.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> We do not rise to the level of our goals; we fall to the level of our system.
+                <strong>💡 Core Insight:</strong> We do not rise to the level of our goals; we fall to the level of our systems.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -577,14 +616,19 @@
             </div>
         </div>
 
-        <!-- Story 5: History -->
+        <!-- CHAPTER 5: History -->
         <div class="story-card" data-category="history">
             <span class="tag"><i class="fa-solid fa-landmark"></i> Historical Wisdom</span>
-            <h2>Lessons from History: The Art of Failing Forward</h2>
-            <p>History is more than just a timeline of past battles and empires—it is a repository of human trial and error. From the administrative brilliance of ancient empires to the philosophical revolutions of the Enlightenment, those who cannot remember the past are condemned to repeat its mistakes.</p>
+            <h2>Chapter 5: The Cyclical Nature of Empires & Human Error</h2>
+            <p>History serves as humanity's collective memory. From the rise and fall of the Roman Empire to the intellectual awakening of the Renaissance, history reveals recurring patterns of human ambition, corruption, innovation, and resilience.</p>
+            
+            <div class="chapter-heading">Learning from Past Mistakes</div>
+            <p>Analyzing historical failures teaches modern leaders about economic overreach, societal complacency, and the vital importance of adaptability during crises.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> True wisdom is built upon the ruins of past mistakes.
+                <strong>💡 Core Insight:</strong> Those who cannot remember the past are condemned to repeat its mistakes. True wisdom is built upon the ruins of past errors.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -596,14 +640,19 @@
             </div>
         </div>
 
-        <!-- Story 6: English Comprehension -->
+        <!-- CHAPTER 6: English Comprehension -->
         <div class="story-card" data-category="english-comprehension">
-            <span class="tag"><i class="fa-solid fa-book-open"></i> Language & Vocabulary</span>
-            <h2>Mastering English Comprehension Through Critical Thinking</h2>
-            <p>Reading comprehension requires active engagement and critical training. By breaking down complex texts, identifying underlying themes, and expanding active vocabulary, you can elevate your analytical capacity.</p>
+            <span class="tag"><i class="fa-solid fa-book-open"></i> Language & Critical Thinking</span>
+            <h2>Chapter 6: Linguistic Mastery & Advanced Comprehension</h2>
+            <p>Language is the software of human thought. Advanced English comprehension transcends basic vocabulary; it involves dissecting syntax, understanding subtext, and evaluating logical arguments critically.</p>
+            
+            <div class="chapter-heading">The Power of Active Reading</div>
+            <p>Active engagement with complex literature expands cognitive bandwidth, enhances articulation, and fosters profound analytical capabilities necessary for leadership and intellectual growth.</p>
+            
             <div class="lesson-box">
-                <strong>💡 Core Insight:</strong> Expand your vocabulary to expand your mental universe.
+                <strong>💡 Core Insight:</strong> Expand your vocabulary and master comprehension to expand the boundaries of your mental universe.
             </div>
+            
             <div class="comment-section">
                 <h4>Leave a Comment</h4>
                 <div class="comment-input-group">
@@ -716,10 +765,10 @@
             });
         }
 
-        // 5. Dynamic 20,000 Wallpapers Generator (10k Mobile + 10k Desktop)
+        // 5. Dynamic 500 Wallpapers Generator (500 Mobile + 500 Desktop)
         const wallpapersData = [];
 
-        for (let i = 1; i <= 10000; i++) {
+        for (let i = 1; i <= 500; i++) {
             wallpapersData.push({
                 title: `Mobile Wallpaper #${i}`,
                 type: "mobile",
@@ -731,7 +780,7 @@
             });
         }
 
-        for (let i = 1; i <= 10000; i++) {
+        for (let i = 1; i <= 500; i++) {
             wallpapersData.push({
                 title: `Desktop Wallpaper #${i}`,
                 type: "desktop",
@@ -743,7 +792,7 @@
             });
         }
 
-        // 6. Render Wallpapers Function (Optimized to prevent browser freeze)
+        // 6. Render Wallpapers Function (Optimized)
         function renderWallpapers() {
             const mobileContainer = document.getElementById('wallpaper-container');
             const desktopContainer = document.getElementById('desktop-wallpaper-container');
@@ -751,8 +800,8 @@
             if (mobileContainer) mobileContainer.innerHTML = "";
             if (desktopContainer) desktopContainer.innerHTML = "";
             
-            const mobileItems = wallpapersData.filter(wp => wp.type === 'mobile').slice(0, 50);
-            const desktopItems = wallpapersData.filter(wp => wp.type === 'desktop').slice(0, 50);
+            const mobileItems = wallpapersData.filter(wp => wp.type === 'mobile').slice(0, 30);
+            const desktopItems = wallpapersData.filter(wp => wp.type === 'desktop').slice(0, 30);
             const displayList = [...mobileItems, ...desktopItems];
             
             displayList.forEach(wp => {
@@ -765,9 +814,9 @@
                     <div class="wallpaper-info">
                         <h4>${wp.title}</h4>
                         <div class="download-options">
-                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url720}', '${wp.fileName}_720p.jpg')" class="btn-dl">720p HD</a>
-                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url1080}', '${wp.fileName}_1080p.jpg')" class="btn-dl">1080p FHD</a>
-                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url4k}', '${wp.fileName}_4K.jpg')" class="btn-dl">4K Ultra</a>
+                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url720}', '${wp.fileName}_720p.jpg')" class="btn-dl">720p</a>
+                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url1080}', '${wp.fileName}_1080p.jpg')" class="btn-dl">FHD</a>
+                            <a href="javascript:void(0)" onclick="downloadImage('${wp.url4k}', '${wp.fileName}_4K.jpg')" class="btn-dl">4K</a>
                         </div>
                     </div>
                 `;
