@@ -508,11 +508,11 @@
             <h2>Chapter 1: The Architecture of Human Attention & Impulse Control</h2>
             <p>In the modern digital epoch, the human mind faces an unprecedented barrage of stimuli. Algorithms engineered by tech giants are systematically designed to hijack dopamine pathways, turning casual scrollers into compulsive consumers. Understanding how cognitive control operates requires looking deep into the prefrontal cortex—the seat of executive decision-making—and contrasting it with the primitive amygdala.</p>
             
-            <div class="chapter-heading">The Positive Side: Mastery & Flow States</div>
-            <p>When you successfully harness mind control, you unlock the state of 'Flow'. Mental clarity sharpens, emotional resilience shields you from trivial setbacks, and you gain the profound ability to direct your focus like a laser beam toward long-term ambitions.</p>
+            <div class="chapter-heading">The Positive Side: Mastery, Focus & Flow States</div>
+            <p>When you successfully harness mind control, you unlock the state of 'Flow'. Mental clarity sharpens, emotional resilience shields you from trivial setbacks, and you gain the profound ability to direct your focus like a laser beam toward long-term ambitions and personal growth.</p>
             
             <div class="chapter-heading">The Negative Side: Attention Residue & Cognitive Fatigue</div>
-            <p>Conversely, failing to govern your attention leads to chronic fragmentation. Every notification checked creates 'attention residue', leaving a fraction of your cognitive bandwidth trapped in the previous distraction. Over time, this breeds anxiety, short attention spans, and decision fatigue.</p>
+            <p>Conversely, failing to govern your attention leads to chronic fragmentation. Every notification checked creates 'attention residue', leaving a fraction of your cognitive bandwidth trapped in the previous distraction. Over time, this breeds anxiety, short attention spans, and severe decision fatigue.</p>
             
             <div class="lesson-box">
                 <strong>💡 Core Insight:</strong> Where your attention goes, your energy flows. Control your attention, and you dictate the trajectory of your reality.
@@ -535,10 +535,10 @@
             <h2>Chapter 2: The Quantum Universe & Technological Singularity</h2>
             <p>Science has evolved from classical Newtonian mechanics into the bizarre, counter-intuitive realms of quantum physics and relativity. Albert Einstein famously rejected quantum entanglement as "spooky action at a distance," yet modern physics proves that subatomic particles across vast distances remain invisibly linked.</p>
             
-            <div class="chapter-heading">The Breakthroughs of Quantum Mechanics</div>
-            <p>The positive implications of quantum computing and advanced tech promise to solve complex medical, cryptographic, and ecological challenges in mere seconds, revolutionizing human civilization.</p>
+            <div class="chapter-heading">The Positive Side: Breakthroughs & Innovations</div>
+            <p>The positive implications of quantum computing, biotechnology, and renewable energy promise to solve complex medical, cryptographic, and ecological challenges in mere seconds, revolutionizing human civilization for the better.</p>
             
-            <div class="chapter-heading">The Technological Risks</div>
+            <div class="chapter-heading">The Negative Side: Existential Risks & Surveillance</div>
             <p>On the flip side, unbridled technological advancement introduces existential risks, including automated warfare, loss of privacy through surveillance capitalism, and ethical dilemmas regarding artificial superintelligence.</p>
             
             <div class="lesson-box">
@@ -568,8 +568,8 @@
             <div class="chapter-heading">2. Internal Cleansing & Hydration</div>
             <p>Consuming adequate water daily flushes metabolic toxins, maintains skin turgor, and keeps joints and organs lubricated.</p>
             
-            <div class="chapter-heading">3. Combatting Hyperpigmentation</div>
-            <p>UV radiation triggers melanin overproduction. Consistent sun protection and active ingredients like Vitamin C are vital to reverse dark spots.</p>
+            <div class="chapter-heading">3. Combatting Hyperpigmentation & Positives/Negatives</div>
+            <p>UV radiation triggers melanin overproduction. While active skincare ingredients like Vitamin C heal blemishes, harsh unverified chemical peels can permanently damage the skin barrier.</p>
             
             <div class="chapter-heading">4. The Role of Deep Sleep</div>
             <p>Sleep deprivation spikes cortisol, degrading collagen and resulting in dark circles and dull complexion. Quality sleep is nature's ultimate restorative therapy.</p>
@@ -595,11 +595,11 @@
             <h2>Chapter 4: The Compound Effect & Systems Over Goals</h2>
             <p>Most people fail in personal development because they rely on sheer willpower and monumental goals rather than sustainable systems. True transformation is built through tiny, imperceptible daily habits that compound over time.</p>
             
-            <div class="chapter-heading">The Positive Framework: 1% Rule</div>
-            <p>Improving by just 1% every single day results in a 37-fold improvement over the course of a year. Small wins build momentum and compound into extraordinary results.</p>
+            <div class="chapter-heading">The Positive Framework: The 1% Rule</div>
+            <p>Improving by just 1% every single day results in a 37-fold improvement over the course of a year. Small wins build unstoppable momentum and compound into extraordinary personal success.</p>
             
-            <div class="chapter-heading">The Pitfall: Goal Obsession without Systems</div>
-            <p>Fixating solely on outcomes without building robust daily systems creates temporary spikes in motivation followed by burnout and stagnation.</p>
+            <div class="chapter-heading">The Pitfall: Burnout & Goal Obsession</div>
+            <p>Fixating solely on outcomes without building robust daily systems creates temporary spikes in motivation followed by devastating burnout and stagnation.</p>
             
             <div class="lesson-box">
                 <strong>💡 Core Insight:</strong> We do not rise to the level of our goals; we fall to the level of our systems.
@@ -792,7 +792,7 @@
             });
         }
 
-        // 6. Render Wallpapers Function (Optimized)
+        // 6. Render Wallpapers Function (Increased limit to 100 items each for rich display)
         function renderWallpapers() {
             const mobileContainer = document.getElementById('wallpaper-container');
             const desktopContainer = document.getElementById('desktop-wallpaper-container');
@@ -800,8 +800,8 @@
             if (mobileContainer) mobileContainer.innerHTML = "";
             if (desktopContainer) desktopContainer.innerHTML = "";
             
-            const mobileItems = wallpapersData.filter(wp => wp.type === 'mobile').slice(0, 30);
-            const desktopItems = wallpapersData.filter(wp => wp.type === 'desktop').slice(0, 30);
+            const mobileItems = wallpapersData.filter(wp => wp.type === 'mobile').slice(0, 100);
+            const desktopItems = wallpapersData.filter(wp => wp.type === 'desktop').slice(0, 100);
             const displayList = [...mobileItems, ...desktopItems];
             
             displayList.forEach(wp => {
