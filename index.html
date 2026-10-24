@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -710,25 +710,34 @@
             });
         }
 
-        // 5. Wallpapers Data Array (20,000+ scale architecture ready)
-        const wallpapersData = [
-            {
-                title: "Cyber Neon Vertical",
-                type: "mobile",
-                thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500",
-                url720: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=720",
-                url1080: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080",
-                url4k: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2160",
-                fileName: "Cyber_Neon"
-            },
-            {
-                title: "Ocean Sunset Widescreen",
-                type: "desktop",
-                thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
-                url720: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1280",
-                url1080: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920",
-                url4k: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=3840",
-                fileName: "Ocean_Desktop"
+       // Dynamic 20,000 Wallpapers Generator (10k Mobile + 10k Desktop)
+const wallpapersData = [];
+
+// 10,000 Mobile Wallpapers
+for (let i = 1; i <= 10000; i++) {
+    wallpapersData.push({
+        title: `Mobile Wallpaper #${i}`,
+        type: "mobile",
+        thumbnail: `https://picsum.photos/seed/mob${i}/300/500`,
+        url720: `https://picsum.photos/seed/mob${i}/720/1280`,
+        url1080: `https://picsum.photos/seed/mob${i}/1080/1920`,
+        url4k: `https://picsum.photos/seed/mob${i}/2160/3840`,
+        fileName: `Mobile_Wallpaper_${i}`
+    });
+}
+
+// 10,000 Desktop Wallpapers
+for (let i = 1; i <= 10000; i++) {
+    wallpapersData.push({
+        title: `Desktop Wallpaper #${i}`,
+        type: "desktop",
+        thumbnail: `https://picsum.photos/seed/desk${i}/500/300`,
+        url720: `https://picsum.photos/seed/desk${i}/1280/720`,
+        url1080: `https://picsum.photos/seed/desk${i}/1920/1080`,
+        url4k: `https://picsum.photos/seed/desk${i}/3840/2160`,
+        fileName: `Desktop_Wallpaper_${i}`
+    });
+}
             }
         ];
 
